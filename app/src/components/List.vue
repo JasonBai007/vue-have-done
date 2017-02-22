@@ -1,7 +1,11 @@
 <template>
   <div class="list-wrap">
     <el-row :gutter="20" type="flex" justify="center">
-      <el-col :span="21"><div class="grid-content bg-purple-dark">fgsfgs</div></el-col>
+      <el-col :span="21">
+        <div v-for="list in listData">
+          <div class="date">{{list.index}} {{list.date}} {{list.project}} {{list.page}} {{list.func}} {{list.percent + '%'}} </div>          
+        </div>
+      </el-col>
     </el-row>
   </div>
 </template>
@@ -9,9 +13,10 @@
 <script>
 export default {
   name: 'list',
+  props:['listData'],
   data () {
-    return {      
-      
+    return {     
+
     }
   }
 }

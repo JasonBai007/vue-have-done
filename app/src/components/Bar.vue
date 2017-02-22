@@ -41,11 +41,11 @@
       </el-col>
       <el-col :span="3">
         <div class="grid-content bg-purple-light">
-          <el-button type="primary">今天我做了这些</el-button>
+          <el-button type="primary" @click="addOneRecord">今天我做了这些</el-button>
         </div>
       </el-col>
     </el-row>
-    <list></list>
+    <list :listData="items"></list>
   </div>
 </template>
 
@@ -57,7 +57,7 @@ export default {
   name: 'bar',
   data () {
     return {      
-      date:moment().format(),
+      date:moment().format("YYYY-MM-DD"),
       project: '',
       options: [{
         value: '舆情监控',
@@ -68,7 +68,26 @@ export default {
       }],
       page: '',
       func: '',
-      percent: 0
+      percent: 0,
+      items:[],
+      index:1
+    }
+  },
+  methods: {
+    addOneRecord() {
+
+      let record = {};
+      let items = this.items;
+
+      record.index = this.index;
+      record.date = this.date;
+      record.project = this.project;
+      record.page = this.page;
+      record.func = this.func;
+      record.percent = this.percent;
+
+      items.push(record);
+      this.index++;
     }
   },
   components: {list}
