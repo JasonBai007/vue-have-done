@@ -13,5 +13,6 @@ export default {
 <style>
   #app {
     margin-top: 40px;
+    overflow: hidden;
   }
 </style>

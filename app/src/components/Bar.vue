@@ -75,7 +75,6 @@ export default {
   },
   methods: {
     addOneRecord() {
-
       let record = {};
       let items = this.items;
 
@@ -88,6 +87,10 @@ export default {
 
       items.push(record);
       this.index++;
+      this.project = '';
+      this.page = '';
+      this.func = '';
+      this.percent = '';
     }
   },
   components: {list}
