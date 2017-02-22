@@ -45,11 +45,13 @@
         </div>
       </el-col>
     </el-row>
+    <list></list>
   </div>
 </template>
 
 <script>
 import moment from 'moment';
+import list from './List'
 
 export default {
   name: 'bar',
@@ -68,7 +70,8 @@ export default {
       func: '',
       percent: 0
     }
-  }
+  },
+  components: {list}
 }
 </script>
 
