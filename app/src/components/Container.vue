@@ -1,51 +1,45 @@
 <template>
   <div>
-    <el-row :gutter="20" type="flex" justify="center" class="animated bounceInDown">
-      <el-col :span="4">
-        <div class="grid-content bg-purple">
+    <el-row :gutter="20" type="flex" justify="center" class="animated bounceInDown topbar">
+      <el-col :span="4">        
           <el-date-picker
             readonly
             v-model="date"
             type="date"
           >
-          </el-date-picker>
-        </div>
+          </el-date-picker>        
       </el-col>
-      <el-col :span="4">
-        <div class="grid-content bg-purple-light">
+      <el-col :span="4">        
           <el-select v-model="project" clearable placeholder="项目">
             <el-option
               v-for="item in options"
               :label="item.label"
               :value="item.value">
             </el-option>
-          </el-select>
-        </div>
+          </el-select>        
       </el-col>
-      <el-col :span="4">
-        <div class="grid-content bg-purple">
-          <el-input placeholder="页面" v-model="page"></el-input>
-        </div>
+      <el-col :span="4">        
+          <el-input placeholder="页面" v-model="page"></el-input>        
       </el-col>
-      <el-col :span="4">
-        <div class="grid-content bg-purple-light">
-          <el-input placeholder="功能" v-model="func"></el-input>
-        </div>
+      <el-col :span="4">        
+          <el-input placeholder="功能" v-model="func"></el-input>        
       </el-col>
-      <el-col :span="2">
-        <div class="grid-content bg-purple">
+      <el-col :span="2">        
           <el-input v-model="percent" placeholder="0">
             <template slot="append">%</template>
-          </el-input>
-        </div>
+          </el-input>        
       </el-col>
-      <el-col :span="3">
-        <div class="grid-content bg-purple-light">
-          <el-button type="primary" @click="addOneRecord">今天我做了这些</el-button>
-        </div>
+      <el-col :span="3">        
+          <el-button type="primary" @click="addOneRecord">今天我做了这些</el-button>        
       </el-col>
     </el-row>
-    <list :listData="items"></list>
+    <el-row type="flex" justify="center">
+      <el-col :span="21">
+        <el-col :span="11" class="animated fadeInLeft">
+          <list :listData="items"></list>          
+        </el-col>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
@@ -110,5 +104,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+.topbar {
+  margin-bottom: 30px;
+}
 </style>

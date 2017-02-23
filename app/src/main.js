@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { Row, Col, Button, Input, Select, Option, DatePicker } from 'element-ui'
+import { Row, Col, Button, Input, Select, Option, DatePicker, Card } from 'element-ui'
 import App from './App'
 import router from './router'
 import 'animate.css/animate.min.css';
@@ -11,6 +11,7 @@ Vue.component(Input.name, Input)
 Vue.component(Select.name, Select)
 Vue.component(Option.name, Option)
 Vue.component(DatePicker.name, DatePicker)
+Vue.component(Card.name, Card)
 
 new Vue({
   el: '#app',

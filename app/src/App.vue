@@ -15,4 +15,8 @@ export default {
     margin-top: 40px;
     overflow: hidden;
   }
+  .el-card__body {
+    max-height: 360px;
+    overflow-y: auto;
+  } 
 </style>
