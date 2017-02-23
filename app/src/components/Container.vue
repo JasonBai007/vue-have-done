@@ -38,8 +38,8 @@
         <el-col :span="12" class="animated fadeInLeft">
           <List :listData="items" @tellFathor="deleteWeekRecord"></List>          
         </el-col>
-        <el-col :span="12" class="animated fadeInLeft">
-          <Setting></Setting>          
+        <el-col :span="12" class="animated fadeInRight">
+          <Setting @tellPapa="handleSetting"></Setting>          
         </el-col>
       </el-col>
     </el-row>
@@ -58,13 +58,7 @@ export default {
     return {      
       date:moment().format("YYYY-MM-DD"),
       project: '',
-      options: [{
-        value: '舆情监控',
-        label: '舆情监控'
-      }, {
-        value: 'AUTODSP-RTB',
-        label: 'AUTODSP-RTB'
-      }],
+      options: [],
       page: '',
       func: '',
       percent: 0,
@@ -99,6 +93,17 @@ export default {
       localStorage.clear();
       this.items = [];
       this.index = 1;
+    },
+    handleSetting(arr) {
+      this.options = [];
+      let opt = this.options;
+      arr.forEach(function(v,i) {
+        opt.push({
+          value: v,
+          label: v
+        })
+      })
+      localStorage.opt = JSON.stringify({opt:opt});
     }
   },
   mounted() {
@@ -107,6 +112,9 @@ export default {
     }
     if(localStorage.index) {
       this.index = localStorage.index;
+    }
+    if(localStorage.opt) {
+      this.options = JSON.parse( localStorage.opt ).opt;
     }
   }
 }
