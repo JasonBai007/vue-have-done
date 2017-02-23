@@ -25,7 +25,7 @@
           <el-input placeholder="功能" v-model="func"></el-input>        
       </el-col>
       <el-col :span="2">        
-          <el-input v-model="percent" placeholder="0">
+          <el-input v-model="percent" placeholder="100">
             <template slot="append">%</template>
           </el-input>        
       </el-col>
@@ -36,7 +36,7 @@
     <el-row type="flex" justify="center">
       <el-col :span="21">
         <el-col :span="11" class="animated fadeInLeft">
-          <list :listData="items"></list>          
+          <list :listData="items" @tellFathor="deleteWeekRecord"></list>          
         </el-col>
       </el-col>
     </el-row>
@@ -75,6 +75,7 @@ export default {
 
       record.index = this.index;
       record.date = this.date;
+      record.week = moment().format("dddd");
       record.project = this.project;
       record.page = this.page;
       record.func = this.func;
@@ -89,6 +90,11 @@ export default {
 
       localStorage.havedone = JSON.stringify({now:items});
       localStorage.index = this.index;
+    },
+    deleteWeekRecord() {
+      localStorage.clear();
+      this.items = [];
+      this.index = 1;
     }
   },
   mounted() {

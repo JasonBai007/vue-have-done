@@ -3,10 +3,10 @@
     <el-card class="box-card">
       <div slot="header" class="clearfix">
         <span style="line-height: 36px;">本周已做以下事项：</span>
-        <i class="el-icon-delete"></i>
+        <i class="el-icon-delete" @click="deleteWeek"></i>
       </div>
       <div v-for="list in listData" class="text item">
-        {{list.index + '、'}}{{list.date}} {{list.project}} {{list.page}} {{list.func}} {{list.percent + '%'}}
+        {{list.index + '、'}}{{list.date}} {{list.week | handleWeek}} {{list.project}} {{list.page}} {{list.func}} {{list.percent + '%'}}
       </div>
     </el-card>     
   </div>
@@ -19,6 +19,25 @@ export default {
   data () {
     return {     
 
+    }
+  },
+  methods: {
+    deleteWeek() {
+      this.$emit('tellFathor')
+    }
+  },
+  filters: {
+    handleWeek(value) {
+      switch (value) {
+        case 'Monday': return '周一'; break;
+        case 'Tuesday': return '周二'; break;
+        case 'Wednesday': return '周三'; break;
+        case 'Thursday': return '周四'; break;
+        case 'Friday': return '周五'; break;
+        case 'Saturday': return '周六'; break;
+        case 'Sunday': return '周日'; break;
+        default: return '';
+      }
     }
   }
 }
