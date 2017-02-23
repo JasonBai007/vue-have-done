@@ -35,7 +35,7 @@
     </el-row>
     <el-row :gutter="20" type="flex" justify="center">
       <el-col :span="21">
-        <el-col :span="12" class="animated fadeInLeft">
+        <el-col :span="12" class="animated fadeInLeft leftlayout">
           <List :listData="items" @tellFathor="deleteWeekRecord"></List>          
         </el-col>
         <el-col :span="12" class="animated fadeInRight">
@@ -124,5 +124,8 @@ export default {
 <style scoped>
 .topbar {
   margin-bottom: 30px;
+}
+.leftlayout {
+  padding-left:0 !important;
 }
 </style>

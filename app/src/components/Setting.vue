@@ -17,7 +17,7 @@
       		<li>开始使用</li>
       	</ol>
       </el-collapse-item>
-      <el-collapse-item title="作者介绍" name="3">
+      <el-collapse-item title="勾搭作者" name="3">
         <img src="../assets/weixin.jpg" alt="" width="240">
       </el-collapse-item>      
     </el-collapse>     
