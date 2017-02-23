@@ -5,10 +5,12 @@
         <span style="line-height: 36px;">本周已做以下事项：</span>
         <i class="el-icon-delete" @click="deleteWeek"></i>
       </div>
-      <div v-for="list in listData" class="text item">
-        {{list.index + '、'}}{{list.date}} {{list.week | handleWeek}} {{list.project}} {{list.page}} {{list.func}} {{list.percent + '%'}}
-      </div>
-    </el-card>     
+      <ol>
+          <li v-for="list in listData" class="animated flipInX">
+            {{list.date}} {{list.week | handleWeek}} {{list.project}} {{list.page}} {{list.func}} {{list.percent + '%'}}
+          </li>
+      </ol>
+    </el-card>
   </div>
 </template>
 
@@ -17,7 +19,7 @@ export default {
   name: 'list',
   props:['listData'],
   data () {
-    return {     
+    return {
 
     }
   },
@@ -43,7 +45,7 @@ export default {
 }
 </script>
 
-<style scoped>	   
+<style scoped>
   i {
     float: right;
     color: #8492a6;
