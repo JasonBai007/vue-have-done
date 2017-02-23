@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-row :gutter="20" type="flex" justify="center">
+    <el-row :gutter="20" type="flex" justify="center" class="animated bounceInDown">
       <el-col :span="4">
         <div class="grid-content bg-purple">
           <el-date-picker
@@ -13,7 +13,7 @@
       </el-col>
       <el-col :span="4">
         <div class="grid-content bg-purple-light">
-          <el-select v-model="project" clearable placeholder="选择项目">
+          <el-select v-model="project" clearable placeholder="项目">
             <el-option
               v-for="item in options"
               :label="item.label"
@@ -54,7 +54,8 @@ import moment from 'moment';
 import list from './List'
 
 export default {
-  name: 'bar',
+  name: 'container',
+  components: {list},
   data () {
     return {      
       date:moment().format("YYYY-MM-DD"),
@@ -91,9 +92,19 @@ export default {
       this.page = '';
       this.func = '';
       this.percent = '';
+
+      localStorage.havedone = JSON.stringify({now:items});
+      localStorage.index = this.index;
     }
   },
-  components: {list}
+  mounted() {
+    if( localStorage.havedone ) {
+      this.items = JSON.parse( localStorage.havedone ).now;      
+    }
+    if(localStorage.index) {
+      this.index = localStorage.index;
+    }
+  }
 }
 </script>
 

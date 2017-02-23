@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Bar from 'components/Bar'
+import Container from 'components/Container'
 
 Vue.use(Router)
 
@@ -8,8 +8,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Bar',
-      component: Bar
+      name: 'Container',
+      component: Container
     }
   ]
 })

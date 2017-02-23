@@ -4,7 +4,9 @@
       <el-col :span="21">
         <div class="inner">
           <div v-for="list in listData">
-            <div class="item">{{list.index + '、'}}{{list.date}} {{list.project}} {{list.page}} {{list.func}} {{list.percent + '%'}} </div>          
+            <div class="item animated flipInX">
+              {{list.index + '、'}}{{list.date}} {{list.project}} {{list.page}} {{list.func}} {{list.percent + '%'}} 
+            </div>          
           </div>        
         </div>
       </el-col>
