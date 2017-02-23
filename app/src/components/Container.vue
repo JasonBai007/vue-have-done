@@ -33,10 +33,13 @@
           <el-button type="primary" @click="addOneRecord">今天我做了这些</el-button>        
       </el-col>
     </el-row>
-    <el-row type="flex" justify="center">
+    <el-row :gutter="20" type="flex" justify="center">
       <el-col :span="21">
-        <el-col :span="11" class="animated fadeInLeft">
-          <list :listData="items" @tellFathor="deleteWeekRecord"></list>          
+        <el-col :span="12" class="animated fadeInLeft">
+          <List :listData="items" @tellFathor="deleteWeekRecord"></List>          
+        </el-col>
+        <el-col :span="12" class="animated fadeInLeft">
+          <Setting></Setting>          
         </el-col>
       </el-col>
     </el-row>
@@ -45,11 +48,12 @@
 
 <script>
 import moment from 'moment';
-import list from './List'
+import List from './List'
+import Setting from './Setting'
 
 export default {
   name: 'container',
-  components: {list},
+  components: {List,Setting},
   data () {
     return {      
       date:moment().format("YYYY-MM-DD"),
