@@ -2,7 +2,7 @@
   <div class="list-wrap">
     <el-card class="box-card">
       <div slot="header" class="clearfix">
-        <span style="line-height: 36px;">本周已做以下事项：</span>
+        <span class="list-title">本周已做以下事项：</span>
         <i class="el-icon-delete" @click="deleteWeek"></i>
       </div>
       <ol>
@@ -20,12 +20,14 @@ export default {
   props:['listData'],
   data () {
     return {
-
     }
   },
   methods: {
     deleteWeek() {
       this.$emit('tellFathor')
+    },
+    deleteOne() {
+      this.$emit('tellLi')
     }
   },
   filters: {
@@ -57,4 +59,12 @@ export default {
     cursor: pointer;
     color: #1F2D3D;
   }
+  .list-title {
+    line-height: 31px;
+    color: #48576a;
+  }
+  ol li {
+    margin-bottom: 5px;
+    color: #1f2d3d;
+  }  
 </style>

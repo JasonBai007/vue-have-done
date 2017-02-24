@@ -55,7 +55,7 @@ export default {
     margin: 0 auto;
   }
   .special {
-    color: #FF4949;
+    color: #20A0FF;
   }
 
 </style>
