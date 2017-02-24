@@ -1,6 +1,6 @@
 # Vue-have-done
 
-> 使用她，记录你一周的工作内容
+> 使用她，记录你一周的工作内容【借助HTML5 localStorage实现本地存储】
 
 ## Build Setup
 
@@ -27,6 +27,7 @@ npm run build --report
 - Vue-cli
 - Element
 - ES6
+- localStorage
 - Moment.js
 - Animate.CSS
 - Webpack
