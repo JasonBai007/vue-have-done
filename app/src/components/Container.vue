@@ -39,7 +39,7 @@
           <Setting @tellPapa="handleSetting"></Setting>
         </el-col>
         <el-col :span="12" class="animated bounceInUp">
-          <List :listData="items" @tellFathor="deleteWeekRecord"></List>
+          <List :listData="items" @tellFathor="deleteWeekRecord" @tellLi="delOne"></List>
         </el-col>
       </el-col>
     </el-row>
@@ -88,6 +88,10 @@ export default {
     deleteWeekRecord() {
       localStorage.clear();
       this.items = [];
+    },
+    delOne(i) {
+        this.items.splice(i,1);
+        localStorage.havedone = JSON.stringify({now:this.items});
     },
     handleSetting(arr) {
       this.options = [];

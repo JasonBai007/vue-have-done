@@ -1,15 +1,14 @@
 <template>
   <div class="list-wrap">
     <el-card class="box-card">
-      <div slot="header" class="clearfix">
-        <span class="list-title">本周已做以下事项：</span>
-        <i class="el-icon-delete" @click="deleteWeek"></i>
-      </div>
-      <ol>
-          <li v-for="list in listData" class="animated flipInX">
-            {{list.date}} {{list.week | handleWeek}} {{list.project}} {{list.page}} {{list.func}} {{list.percent + '%'}}
-          </li>
-      </ol>
+        <div slot="header" class="clearfix">
+          <span class="list-title">本周已做以下事项：</span>
+          <i class="el-icon-delete2" @click="deleteWeek"></i>
+        </div>
+        <div v-for="(list,index) in listData" class="animated flipInX listItem">
+            {{index+1 +'、'}}{{list.date}} {{list.week | handleWeek}} {{list.project}} {{list.page}} {{list.func}} {{list.percent + '%'}}
+            <i class="el-icon-circle-cross delBtn" @click="deleteOne(index)"></i>
+        </div>
     </el-card>
   </div>
 </template>
@@ -26,8 +25,8 @@ export default {
     deleteWeek() {
       this.$emit('tellFathor')
     },
-    deleteOne() {
-      this.$emit('tellLi')
+    deleteOne(index) {
+        this.$emit('tellLi',index)
     }
   },
   filters: {
@@ -63,8 +62,12 @@ export default {
     line-height: 31px;
     color: #48576a;
   }
-  ol li {
+  .listItem {
     margin-bottom: 5px;
     color: #1f2d3d;
-  }  
+  }
+  .delBtn {
+    font-size: 1.2em;
+    margin-top: 2px;
+  }
 </style>
