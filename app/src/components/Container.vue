@@ -81,7 +81,6 @@ export default {
             record.percent = this.percent;
 
             items.push(record);
-            this.project = '';
             this.page = '';
             this.func = '';
             this.percent = 100;
