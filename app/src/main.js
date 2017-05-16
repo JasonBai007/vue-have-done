@@ -16,8 +16,8 @@ Vue.component(Collapse.name, Collapse)
 Vue.component(CollapseItem.name, CollapseItem)
 
 new Vue({
-  el: '#app',
-  router,
-  template: '<App/>',
-  components: { App }
+    el: '#app',
+    router,
+    template: '<App/>',
+    components: { App }
 })

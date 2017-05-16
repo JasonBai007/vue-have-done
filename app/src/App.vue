@@ -1,25 +1,25 @@
 <template>
-  <div id="app">
-    <router-view></router-view>
-  </div>
+    <div id="app">
+        <router-view></router-view>
+    </div>
 </template>
-
 <script>
 export default {
-  name: 'app'
+    name: 'app'
 }
 </script>
-
 <style>
-  #app {
+#app {
     margin-top: 40px;
     overflow: hidden;
-  }
-  .el-card__header {
+}
+
+.el-card__header {
     padding: 6px 20px;
-  }
-  .el-card__body {
+}
+
+.el-card__body {
     max-height: 360px;
     overflow-y: auto;
-  } 
+}
 </style>

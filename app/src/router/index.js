@@ -5,11 +5,9 @@ import Container from 'components/Container'
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'Container',
-      component: Container
-    }
-  ]
+    routes: [{
+        path: '/',
+        name: 'Container',
+        component: Container
+    }]
 })
