@@ -3,7 +3,7 @@
         <el-row :gutter="20" type="flex" justify="center" class="animated bounceInDown topbar">
            <el-col :span="21">
                
-                <el-col :span="6" style = "padding-left:0;">
+                <el-col :span="6">
                     <el-date-picker v-model="date" type="date"  class = "commonwidth">
                     </el-date-picker>
                 </el-col>
@@ -68,7 +68,6 @@ export default {
         }
     },
     mounted() {
-       
         if (localStorage.havedone) {
             this.items = JSON.parse(localStorage.havedone).now;
         }
@@ -85,24 +84,17 @@ export default {
             record.week = moment(this.date).format("dddd");
             record.project = this.project;
             record.pagefunc = this.pagefunc;
-            if( record.project=='' || record.pagefunc==''){
-                alert("请选择项目并输入页面功能");
-            }else{
-                
-                // record.func = this.func;
-                record.percent = this.percent;
-                console.log(record);
+            // record.func = this.func;
+            record.percent = this.percent;
+            console.log(record);
+            items.push(record);
+            this.pagefunc = '';
+            this.func = '';
+            this.percent = 100;
 
-                items.push(record);
-                this.pagefunc = '';
-                this.func = '';
-                this.percent = 100;
-            
-                localStorage.havedone = JSON.stringify({
-                    now: items
-                });
-            }
-            
+            localStorage.havedone = JSON.stringify({
+                now: items
+            });
         },
         deleteWeekRecord() {
             localStorage.clear();
@@ -115,34 +107,17 @@ export default {
             });
         },
         handleSetting(arr) {
-            // this.options = [];
-            if(this.options.length>0){
-                var opt = JSON.parse(localStorage.opt).opt;
-                console.log(opt);
-                arr.forEach(function(v, i) {
-                    opt.push({
-                        value: v,
-                        label: v
-                    })
+            this.options = [];
+            let opt = this.options;
+            arr.forEach(function(v, i) {
+                opt.push({
+                    value: v,
+                    label: v
                 })
-                localStorage.opt = JSON.stringify({
-                    opt: opt
-                });
-                this.options = JSON.parse(localStorage.opt).opt;
-            }else{
-                var opt = [];
-                arr.forEach(function(v, i) {
-                    opt.push({
-                        value: v,
-                        label: v
-                    })
-                })
-                localStorage.opt = JSON.stringify({
-                    opt: opt
-                });
-                this.options = JSON.parse(localStorage.opt).opt;
-            }
-           
+            })
+            localStorage.opt = JSON.stringify({
+                opt: opt
+            });
         }
     }
 
