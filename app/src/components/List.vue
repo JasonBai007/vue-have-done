@@ -6,7 +6,7 @@
                 <i class="el-icon-delete2" @click="deleteWeek"></i>
             </div>
             <div v-for="(list,index) in listData" class="animated flipInX listItem">
-                {{index+1 +'、'}}{{list.date}} {{list.week | handleWeek}} {{list.project}} {{list.page}} {{list.func}} {{list.percent + '%'}}
+                {{index+1 +'、'}}{{list.date}} {{list.week | handleWeek}} <span class ="redcolor">{{list.project}}</span> {{list.pagefunc}}  {{list.percent + '%'}}
                 <i class="el-icon-circle-cross delBtn" @click="deleteOne(index)"></i>
             </div>
         </el-card>
@@ -59,6 +59,9 @@ export default {
 }
 </script>
 <style scoped>
+.redcolor{
+    color:red;
+}
 i {
     float: right;
     color: #8492a6;

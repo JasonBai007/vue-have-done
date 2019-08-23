@@ -2,7 +2,7 @@
     <div class="setting-wrap">
         <el-collapse v-model="activeNames" @change="handleChange" accordion>
             <el-collapse-item title="配置项目" name="1">
-                <textarea class="el-textarea__inner" rows="3" @keyup.enter="submit" placeholder="请输入项目名称，以中文逗号分隔，输入完，按Enter键完成配置" v-model="con">
+                <textarea class="el-textarea__inner" rows="3" @keyup.enter="submit" placeholder="请输入项目名称，以中文空格分隔，输入完，按Enter键完成配置" v-model="con">
                 </textarea>
             </el-collapse-item>
             <el-collapse-item title="使用说明" name="2">
@@ -32,8 +32,9 @@ export default {
         handleChange() {},
         submit() {
             let str = this.con.replace(/\n/g, '');
-            let arr = str.split('，');
+            let arr = str.split(' ');
             this.$emit('tellPapa', arr);
+            this.con = '';
         }
     }
 }
