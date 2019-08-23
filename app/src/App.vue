@@ -1,25 +1,28 @@
 <template>
-    <div id="app">
-        <router-view></router-view>
-    </div>
+  <div id="app">
+    <router-view></router-view>
+  </div>
 </template>
 <script>
 export default {
-    name: 'app'
-}
+  name: "app"
+};
 </script>
 <style>
 #app {
-    margin-top: 40px;
-    overflow: hidden;
+  margin-top: 40px;
+  overflow: hidden;
 }
 
 .el-card__header {
-    padding: 6px 20px;
+  padding: 6px 20px;
 }
 
 .el-card__body {
-    max-height: 360px;
-    overflow-y: auto;
+  max-height: 360px;
+  overflow-y: auto;
+}
+.el-collapse-item__wrap {
+  background-color: #f4f7fc;
 }
 </style>
