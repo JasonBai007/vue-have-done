@@ -19,7 +19,7 @@ export default {
 }
 
 .el-card__body {
-  max-height: 360px;
+  max-height: calc(100vh - 210px);
   overflow-y: auto;
 }
 .el-collapse-item__wrap {

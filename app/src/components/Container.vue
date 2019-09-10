@@ -15,7 +15,7 @@
           <el-input placeholder="页面功能" v-model="pagefunc" class="commonwidth" @keyup.enter.native="addOneRecord"></el-input>
         </el-col>
         <el-col :span="3">
-          <el-input v-model="percent" placeholder="完成度" class="commonwidth">
+          <el-input v-model="percent" placeholder="完成度" class="commonwidth" @keyup.enter.native="addOneRecord">
             <template slot="append">%</template>
           </el-input>
         </el-col>
